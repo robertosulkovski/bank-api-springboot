@@ -2,14 +2,18 @@
 
 REST API developed with Spring Boot for banking user management.
 
-This project was developed as a practical study application inspired by the concepts explored during the **TOTVS - Fundamentos de Engenharia de Dados e Machine Learning** bootcamp, offered by DIO (Digital Innovation One), with adaptations, debugging improvements and implementation adjustments made during development to reinforce concepts of REST APIs, persistence and software architecture.
+This project was developed as a practical study application inspired by concepts explored during the **TOTVS - Fundamentos de Engenharia de Dados e Machine Learning** bootcamp, offered by **DIO (Digital Innovation One)**.
+
+The implementation was adapted and expanded during development to reinforce software engineering concepts, REST API design, persistence and relational modeling.
+
+---
 
 ## Learning Context
 
-The project was developed based on concepts studied during the **TOTVS - Fundamentos de Engenharia de Dados e Machine Learning** bootcamp and expanded through practical implementation activities, including:
+The project was developed based on concepts studied during the bootcamp and expanded through practical implementation activities, including:
 
-- Entity relationship modeling
 - REST API development
+- Entity relationship modeling
 - CRUD operations
 - JPA and Hibernate persistence
 - H2 database integration
@@ -17,17 +21,15 @@ The project was developed based on concepts studied during the **TOTVS - Fundame
 - SQL troubleshooting and schema adjustments
 - Git and GitHub versioning
 
-During development, improvements and fixes were implemented beyond the initial reference structure, including persistence corrections, entity relationship adjustments and database compatibility improvements.
+During development, improvements and fixes were implemented beyond the original reference structure, including persistence corrections, database compatibility adjustments and relationship modeling refinements.
+
+---
 
 ## Domain Model
 
-```
-User
- ├── Account
- ├── Card
- ├── Feature[]
- └── News[]
-```
+The API was structured around a banking domain model using JPA entity relationships.
+
+![Domain Model](docs/domain-model.png)
 
 Relationships:
 
@@ -35,6 +37,8 @@ Relationships:
 - User → Card (1:1)
 - User → Feature (1:N)
 - User → News (1:N)
+
+---
 
 ## Technologies
 
@@ -48,15 +52,20 @@ Relationships:
 - GitHub
 - Postman
 
+---
+
 ## Features
 
 - Create users
 - List users
+- Get user by ID
 - Update users
 - Delete users
 - Banking account management
 - Card management
 - Features and news association
+
+---
 
 ## API Endpoints
 
@@ -64,7 +73,7 @@ Relationships:
 
 POST
 
-```
+```http
 /users
 ```
 
@@ -82,7 +91,19 @@ Example:
   "card": {
     "number": "9999888877776666",
     "limit": 5000
-  }
+  },
+  "features": [
+    {
+      "icon": "PIX",
+      "description": "Transferência instantânea"
+    }
+  ],
+  "news": [
+    {
+      "icon": "INFO",
+      "description": "Nova funcionalidade"
+    }
+  ]
 }
 ```
 
@@ -90,7 +111,7 @@ Example:
 
 GET
 
-```
+```http
 /users
 ```
 
@@ -98,7 +119,7 @@ GET
 
 GET
 
-```
+```http
 /users/{id}
 ```
 
@@ -106,7 +127,7 @@ GET
 
 PUT
 
-```
+```http
 /users/{id}
 ```
 
@@ -114,11 +135,13 @@ PUT
 
 DELETE
 
-```
+```http
 /users/{id}
 ```
 
-## Running locally
+---
+
+## Running Locally
 
 Clone repository:
 
@@ -126,7 +149,7 @@ Clone repository:
 git clone https://github.com/robertosulkovski/bank-api-springboot.git
 ```
 
-Enter folder:
+Enter project folder:
 
 ```bash
 cd bank-api-springboot
@@ -138,25 +161,40 @@ Run application:
 mvn spring-boot:run
 ```
 
-Open:
+Application available at:
 
-```
+```http
 http://localhost:8080/users
 ```
 
+---
+
 ## Project Highlights
 
-During development, practical challenges involving persistence and database modeling were addressed, including:
+Practical challenges addressed during development:
 
-- SQL reserved keyword conflicts
+- SQL reserved keyword conflict resolution
 - Hibernate configuration adjustments
 - Entity relationship corrections
 - API endpoint validation
-- Data persistence troubleshooting
+- Persistence troubleshooting
+- H2 database schema adjustments
+
+---
 
 ## Reference
 
-Project developed based on concepts studied during the **TOTVS - Fundamentos de Engenharia de Dados e Machine Learning** bootcamp, offered by DIO (Digital Innovation One), adapted and expanded for learning purposes.
+Project developed based on concepts studied during:
+
+**TOTVS - Fundamentos de Engenharia de Dados e Machine Learning**
+
+Offered by:
+
+**DIO (Digital Innovation One)**
+
+Adapted and expanded for learning purposes.
+
+---
 
 ## Author
 
