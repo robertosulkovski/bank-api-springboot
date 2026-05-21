@@ -53,15 +53,17 @@ public class UserController {
                 .orElseThrow(() -> new IllegalArgumentException(
                         "Usuário não encontrado"));
 
-        validateUser(user);
+        if (user.getNews() != null) {
 
-        existingUser.setName(user.getName());
-        existingUser.setAccount(user.getAccount());
-        existingUser.setCard(user.getCard());
-        existingUser.setFeatures(user.getFeatures());
-        existingUser.setNews(user.getNews());
+            existingUser.getNews().clear();
 
-        return repository.save(existingUser);
+            existingUser.getNews().addAll(
+                    user.getNews());
+
+        }
+
+        return repository.save(
+                existingUser);
 
     }
 

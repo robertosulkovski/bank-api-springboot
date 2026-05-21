@@ -19,39 +19,68 @@ public class News {
     public News() {
     }
 
-    public News(String icon, String description) {
-        this.icon = icon;
-        this.description = description;
+    public News(
+            String icon,
+            String description) {
+
+        setIcon(icon);
+        setDescription(description);
+
     }
 
     public Long getId() {
+
         return id;
+
+    }
+
+    public void setId(
+            Long id) {
+
+        this.id = id;
+
     }
 
     public String getIcon() {
+
         return icon;
+
     }
 
-    public void setIcon(String icon) {
+    public void setIcon(
+            String icon) {
 
-        if (icon == null || icon.trim().isEmpty()) {
-            throw new IllegalArgumentException("Icon não pode ser vazio");
+        if (icon == null
+                || icon.trim().isEmpty()) {
+
+            throw new IllegalArgumentException(
+                    "Icon não pode ser vazio");
+
         }
 
         this.icon = icon;
+
     }
 
     public String getDescription() {
+
         return description;
+
     }
 
-    public void setDescription(String description) {
+    public void setDescription(
+            String description) {
 
-        if (description == null || description.trim().isEmpty()) {
-            throw new IllegalArgumentException("Description não pode ser vazia");
+        if (description == null
+                || description.trim().isEmpty()) {
+
+            throw new IllegalArgumentException(
+                    "Description não pode ser vazia");
+
         }
 
         this.description = description;
+
     }
 
 }
